@@ -1,5 +1,5 @@
 import tkinter as tk
-
+from tkinter import simpledialog, messagebox
 
 # Main App Class
 class MealTrackerApp:
@@ -9,12 +9,20 @@ class MealTrackerApp:
         self.root.geometry("300x300")
 
         # Placeholder for user input
-        self.calorie_goal = 1800  # Default
+        goal = simpledialog.askstring("Daily Calorie Goal", "Enter your daily calorie goal:")
+        try:
+            self.calorie_goal = int(goal)
+        except (TypeError, ValueError):
+            messagebox.showerror("Invalid Input", "Using default goal of 1800 calories.")
+        self.calorie_goal = 1800  # default if user does not provide calorie goal input
         self.total_calories = 0
         self.meals = []
 
         # Basic UI Setup
         self.setup_ui()
+
+        # Title
+        tk.Label(root, text="Munch Monitor 🍽️", font=("Helvetica", 16, "bold")).pack(pady=10)
 
     def setup_ui(self):
         # Add your basic labels and buttons here
