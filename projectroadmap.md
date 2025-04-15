@@ -6,11 +6,11 @@
 
 - [x] Write initial README with purpose and description
 
-- [ ] Upload any code
+- [x] Upload any code
 
-- [ ] Clone files tp Github Desktop and upload them to VSC
+- [x] Clone files tp Github Desktop and upload them to VSC
 
-- [ ] Run the code & analyze any errors
+- [x] Run the code & analyze errors/make changes to accomodate program goals
 
 - [ ] Create solution for errors
 
