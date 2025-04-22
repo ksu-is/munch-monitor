@@ -8,7 +8,7 @@ class MealTrackerApp:
         self.root.title("Munch Monitor")
         self.root.geometry("300x300")
 
-        # placeholder for user input
+        # prompt for user input
         goal = simpledialog.askstring("Daily Calorie Goal", "Enter your daily calorie goal:")
         try:
             self.calorie_goal = int(goal)
@@ -50,11 +50,21 @@ class MealTrackerApp:
 
     def view_meals(self):
         # function for viewing meals goes here
-        pass
+        if not self.meals:
+            messagebox.showinfo("Meals Logged", "No meals logged yet.")
+            return
+        meal_text = "\n".join([f"{name} - {cal} cal" for name, cal in self.meals])
+        messagebox.showinfo("Meals Logged Today", meal_text)
+
 
     def reminder_loop(self):
         # function for background reminders goes here
-        pass
+        while True:
+            time.sleep(REMINDER_INTERVAL)
+            self.send_reminder()
+
+    def send_reminder(self):
+        messagebox.showinfo("Munch Monitor Reminder", "⏰ Don't forget to log your meals!")
 
 # launch the app
 if __name__ == "__main__":
